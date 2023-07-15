@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
     return (
         <div className="px-6 py-4 bg-gray-700 flex justify-between items-center">
@@ -16,13 +18,13 @@ const Header = () => {
             <nav id="primay-nav" className="text-white text-xl">
                 <ul className="flex space-x-6">
                     <li>
-                        <a>Games</a>
+                        <Link to={`games`}>Games</Link>
                     </li>
                     <li>
-                        <a>Characters</a>
+                        <Link to={`characters`}>Characters</Link>
                     </li>
                     <li>
-                        <a>Monsters</a>
+                        <Link to={`monsters`}>Monsters</Link>
                     </li>
                 </ul>
             </nav>
