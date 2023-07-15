@@ -9,7 +9,7 @@ const Pagination: React.FC<Props> = ({
     setCurrentPage,
     totalPages,
 }) => {
-    const pageDisplay = (
+    const pageNumDisplay = (
         <div className="text-lg">
             <span>Page: </span>
             <span> {currentPage} </span>
@@ -21,22 +21,20 @@ const Pagination: React.FC<Props> = ({
     return (
         <div className="flex justify-between px-4 my-4">
             <button
-                className="bg-gray-300 px-4 py-1 rounded-sm"
+                className="bg-gray-300 px-4 py-1 rounded-sm disabled:opacity-0"
                 onClick={() => setCurrentPage((old) => Math.max(old - 1, 1))}
                 disabled={currentPage === 1}
             >
                 Previous Page
             </button>
-            {currentPage && pageDisplay}
-            {totalPages && (
-                <button
-                    className="bg-gray-300 px-4 py-1 rounded-sm"
-                    onClick={() => setCurrentPage((old) => Math.min(old + 1, totalPages))}
-                    disabled={currentPage === totalPages}
-                >
-                    Next Page
-                </button>
-            )}
+            {pageNumDisplay}
+            <button
+                className="bg-gray-300 px-4 py-1 rounded-sm disabled:hidden"
+                onClick={() => setCurrentPage((old) => Math.min(old + 1, totalPages))}
+                disabled={currentPage === totalPages}
+            >
+                Next Page
+            </button>
         </div>
     );
 };
