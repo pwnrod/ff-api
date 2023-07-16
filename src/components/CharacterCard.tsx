@@ -14,20 +14,20 @@ const CharacterCard: React.FC<Props> = ({ character }) => {
                     alt={`A lil image of ${character.name}`}
                 />
             </figure>
-            <div className="p-5">
+            <div className="p-5 font-normal text-gray-700 dark:text-gray-400">
                 <a href="#">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {character.name}
                     </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    Age: {character.age}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    Gender: {character.gender}
-                </p>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    Height: {character.height}
+                <p className="mb-3">Origin: {character.origin}</p>
+                <p className="mb-3">Age: {character.age}</p>
+                <p className="mb-3">Gender: {character.gender}</p>
+                <p className="mb-3">
+                    Height:{" "}
+                    {character.height === "??"
+                        ? character.height
+                        : character.height + "m"}
                 </p>
             </div>
         </div>

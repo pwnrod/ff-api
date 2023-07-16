@@ -50,7 +50,14 @@ const CharactersPage: React.FC = () => {
 
     return (
         <>
-            <div className="grid gap-4 grid-cols-3 px-4">{renderedCharacters}</div>
+            <Pagination
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                totalPages={totalPages}
+            />
+            <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-4">
+                {renderedCharacters}
+            </div>
             <Pagination
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
