@@ -1,50 +1,88 @@
 import { GrNext, GrPrevious } from "react-icons/gr";
+import { usePagination } from "../hooks/usePagination";
 
 interface Props {
+    onPageChange: (newPage: number) => void;
+    totalCount: number;
+    siblingCount?: number;
     currentPage: number;
-    setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-    totalPages: number;
+    pageSize: number;
+    className?: string;
 }
 
 const Pagination: React.FC<Props> = ({
+    onPageChange,
+    totalCount,
+    siblingCount = 1,
     currentPage,
-    setCurrentPage,
-    totalPages,
+    pageSize,
+    className,
 }) => {
-    const pageNumDisplay = (
-        <div className="text-lg">
-            <span>Page: </span>
-            <span> {currentPage} </span>
-            <span>of </span>
-            <span> {totalPages} </span>
-        </div>
-    );
+    const paginationRange = usePagination({
+        currentPage,
+        totalCount,
+        siblingCount,
+        pageSize,
+    });
 
-    const handleClick = (increment: number) => {
-        setCurrentPage((old) =>
-            increment > 0 ? Math.min(old + 1, totalPages) : Math.max(old - 1, 1)
-        );
-        scrollTo({ top: 0, behavior: "smooth" });
+    if (currentPage === 0 || !paginationRange || paginationRange.length < 2) {
+        return null;
+    }
+
+    const onNext = () => {
+        onPageChange(currentPage + 1);
     };
 
+    const onPrev = () => {
+        onPageChange(currentPage - 1);
+    };
+
+    const paginationItems: JSX.Element[] = [];
+    let lastPageNumber = 0;
+
+    for (const pageNumber of paginationRange) {
+        if (pageNumber - lastPageNumber !== 1) {
+            paginationItems.push(
+                <li key={`dots${pageNumber}`}>
+                    <span>&#8230;</span>
+                </li>
+            );
+        }
+        paginationItems.push(
+            <li key={pageNumber}>
+                <button
+                    onClick={() => onPageChange(pageNumber)}
+                    className={currentPage === pageNumber ? "text-2xl" : ""}
+                >
+                    {pageNumber}
+                </button>
+            </li>
+        );
+        lastPageNumber = pageNumber;
+    }
+
     return (
-        <div className="flex justify-between px-4 my-4">
-            <button
-                className="bg-gray-300 px-4 py-1 rounded-sm disabled:opacity-0"
-                onClick={() => handleClick(-1)}
-                disabled={currentPage === 1}
-            >
-                <GrPrevious />
-            </button>
-            {pageNumDisplay}
-            <button
-                className="bg-gray-300 px-4 py-1 rounded-sm disabled:hidden"
-                onClick={() => handleClick(1)}
-                disabled={currentPage === totalPages}
-            >
-                <GrNext />
-            </button>
-        </div>
+        <ul className="flex text-md items-center px-4 space-x-2">
+            <li className="ml-auto text-lg">
+                <button
+                    onClick={onPrev}
+                    disabled={currentPage === 1}
+                    className="bg-gray-200 rounded-sm p-1"
+                >
+                    <GrPrevious />
+                </button>
+            </li>
+            {paginationItems}
+            <li className="ml-auto text-lg">
+                <button
+                    onClick={onNext}
+                    disabled={currentPage === paginationRange[paginationRange.length - 1]}
+                    className="bg-gray-200 rounded-sm p-1 mr-auto"
+                >
+                    <GrNext />
+                </button>
+            </li>
+        </ul>
     );
 };
 
