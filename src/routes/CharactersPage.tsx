@@ -28,7 +28,7 @@ const CharactersPage: React.FC = () => {
     }
 
     return (
-        <>
+        <main className='max-w-4xl mx-auto'>
             <div className='flex justify-between px-4'>
                 <h1 className='text-3xl'>Characters</h1>
                 <Pagination
@@ -38,7 +38,7 @@ const CharactersPage: React.FC = () => {
                     pageSize={ITEMS_PER_PAGE}
                 />
             </div>
-            <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-4 my-4'>
+            <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-4 my-4'>
                 {renderedCharacters}
             </div>
             <Pagination
@@ -47,7 +47,7 @@ const CharactersPage: React.FC = () => {
                 totalCount={totalCount}
                 pageSize={ITEMS_PER_PAGE}
             />
-        </>
+        </main>
     );
 };
 
