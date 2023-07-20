@@ -1,5 +1,5 @@
-import { GrNext, GrPrevious } from "react-icons/gr";
-import { usePagination } from "../hooks/usePagination";
+import { GrNext, GrPrevious } from 'react-icons/gr';
+import { usePagination } from '../hooks/usePagination';
 
 interface Props {
     onPageChange: (newPage: number) => void;
@@ -52,7 +52,7 @@ const Pagination: React.FC<Props> = ({
             <li key={pageNumber}>
                 <button
                     onClick={() => onPageChange(pageNumber)}
-                    className={currentPage === pageNumber ? "text-2xl" : ""}
+                    className={currentPage === pageNumber ? 'text-2xl' : ''}
                 >
                     {pageNumber}
                 </button>
@@ -62,22 +62,25 @@ const Pagination: React.FC<Props> = ({
     }
 
     return (
-        <ul className="flex text-md items-center px-4 space-x-2">
-            <li className="ml-auto text-lg">
+        <ul className='flex text-md items-center px-4 space-x-2'>
+            <li className='ml-auto text-lg'>
                 <button
                     onClick={onPrev}
                     disabled={currentPage === 1}
-                    className="bg-gray-200 rounded-sm p-1"
+                    className='bg-gray-200 rounded-sm p-1'
                 >
                     <GrPrevious />
                 </button>
             </li>
             {paginationItems}
-            <li className="ml-auto text-lg">
+            <li className='ml-auto text-lg'>
                 <button
                     onClick={onNext}
-                    disabled={currentPage === paginationRange[paginationRange.length - 1]}
-                    className="bg-gray-200 rounded-sm p-1 mr-auto"
+                    disabled={
+                        currentPage ===
+                        paginationRange[paginationRange.length - 1]
+                    }
+                    className='bg-gray-200 rounded-sm p-1 mr-auto'
                 >
                     <GrNext />
                 </button>
