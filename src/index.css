@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ff-dialog {
+    @apply px-3;
+    @apply py-2;
+    @apply rounded-md;
+    @apply bg-ffBlue;
+    @apply bg-gradient-to-b;
+    @apply from-ffBlue;
+    @apply to-ffDarkBlue;
+    @apply border;
+    @apply border-solid;
+    @apply border-ffGray;
+    box-shadow:
+        1px 1px #e7dfe7,
+        -1px -1px #e7dfe7,
+        1px -1px #e7dfe7,
+        -1px 1px #e7dfe7,
+        0 -2px #9c9a9c,
+        -2px 0 #7b757b,
+        0 2px #424542;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#04009d', endColorstr='#06004d',GradientType=0 );
+}
+
+.ff-dialog * {
+    text-shadow:
+        2px 2px #212421,
+        1px 1px #212021;
+    font-family: Verdana, sans-serif;
+}
+
+.ff-dialog a::before {
+    content: '';
+    position: absolute;
+    display: none;
+    background: url('../public/ff-cursor.png');
+    top: -0.75rem;
+    width: 5rem;
+    height: 4rem;
+    background-size: cover;
+    background-repeat: none;
+    transform: translateX(-5.25rem);
+}
+
+.ff-dialog a:hover {
+    cursor: none;
+}
+
+.ff-dialog a:hover::before {
+    display: block;
+}
+
+.ff-dialog a:focus::before {
+    display: block;
+}
+
+.ff-dialog button::before {
+    content: '';
+    position: absolute;
+    display: none;
+    background: url('../public/ff-cursor.png');
+    top: -0.75rem;
+    width: 5rem;
+    height: 4rem;
+    background-size: cover;
+    background-repeat: none;
+    transform: translateX(-5.25rem);
+}
+
+.ff-dialog button:hover {
+    cursor: none;
+}
+
+.ff-dialog button:hover::before {
+    display: block;
+}
+
+.ff-dialog button:focus::before {
+    display: block;
+}
