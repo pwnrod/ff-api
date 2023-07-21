@@ -23,9 +23,9 @@ const Time = () => {
     }, []);
 
     return (
-        <div className='flex justify-between items-center space-x-4'>
+        <div className='flex justify-between items-center space-x-3'>
             <p>Time</p>
-            <div className='text-bold'>
+            <div className='text-bold w-20 text-right'>
                 <span>{hour}</span>:<span>{minute}</span>:<span>{second}</span>
             </div>
         </div>

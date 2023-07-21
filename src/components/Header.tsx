@@ -64,7 +64,7 @@ const Header = () => {
                     className='text-white text-xl relative'
                     aria-label='main'
                 >
-                    <ul className='ff-dialog mt-1 max-w-[10rem] ml-auto absolute right-0 -top-5 px-6 py-3'>
+                    <ul className='ff-dialog mt-1 max-w-[10rem] ml-auto absolute right-2 -top-5 px-6 py-3'>
                         <li>
                             <Link
                                 tabIndex={-1}
