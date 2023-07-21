@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './ErrorPage';
 import CharactersPage from './routes/CharactersPage';
 import HomePage from './routes/HomePage';
+import GamesPage from './routes/GamesPage';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         path: '/characters',
         element: <CharactersPage />,
       },
+      {
+        path: '/games',
+        element: <GamesPage />,
+      },
     ],
   },
 ]);
@@ -28,5 +33,5 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
