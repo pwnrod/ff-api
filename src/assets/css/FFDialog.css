@@ -46,10 +46,6 @@
     display: block;
 }
 
-.ff-dialog a:focus::before {
-    display: block;
-}
-
 .ff-dialog button::before {
     content: '';
     position: absolute;
@@ -70,7 +66,3 @@
 .ff-dialog button:hover::before {
     display: block;
 }
-
-/* .ff-dialog button:focus::before { */
-/*   display: block; */
-/* } */

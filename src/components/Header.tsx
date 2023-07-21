@@ -1,44 +1,20 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-    const [isMenuExpanded, setIsMenuExpanded] = useState(false);
+    const [isMenuExpanded, setIsMenuExpanded] = useState(true);
     const navRef = useRef<HTMLDivElement | null>(null);
     const menuButtonRef = useRef<HTMLButtonElement | null>(null);
 
-    useEffect(() => {
-        const handleClickOutside = (e: MouseEvent) => {
-            if (
-                navRef.current &&
-                !navRef.current?.contains(e.target as Node) &&
-                !menuButtonRef.current?.contains(e.target as Node)
-            ) {
-                setIsMenuExpanded(false);
-            }
-        };
-
-        const handleEsc = () => {
-            setIsMenuExpanded(false);
-        };
-
-        document.addEventListener('click', handleClickOutside);
-        document.addEventListener('keydown', handleEsc);
-
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-            document.removeEventListener('keydown', handleEsc);
-        };
-    }, [navRef]);
-
     return (
-        <header className='max-w-5xl mx-auto'>
+        <header className='max-w-5xl mx-auto pr-24 relative'>
             <section
                 id='header'
-                className='ff-dialog max-w-4xl mx-auto px-6 py-3 flex justify-between items-center mt-2'
+                className='ff-dialog px-6 py-3 flex justify-between items-center mt-2'
             >
                 <div className='flex items-center space-x-6'>
                     <img
-                        src='../../public/chocobo.png'
+                        src='/chocobo.png'
                         alt='a stupid AI generated logo'
                         className='rounded-full w-10'
                     />
@@ -52,7 +28,7 @@ const Header = () => {
                         onClick={() => setIsMenuExpanded(!isMenuExpanded)}
                         className='text-xl focus:outline-none relative'
                     >
-                        Menu
+                        {isMenuExpanded ? 'Hide Menu' : 'Menu'}
                     </button>
                 </div>
             </section>
@@ -61,35 +37,33 @@ const Header = () => {
                 <nav
                     id='primay-nav'
                     ref={navRef}
-                    className='text-white text-xl relative'
+                    className='text-white text-xl absolute right-0 top-11 z-20'
                     aria-label='main'
                 >
-                    <ul className='ff-dialog mt-1 max-w-[10rem] ml-auto absolute right-2 -top-5 px-6 py-3'>
+                    <ul className='ff-dialog mt-1 max-w-[10rem] px-6 py-3'>
                         <li>
-                            <Link
-                                tabIndex={-1}
-                                className='block relative'
-                                to={`games`}
-                            >
+                            <Link className='block relative' to={`/`}>
+                                Home
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className='block relative' to={`games`}>
                                 Games
                             </Link>
                         </li>
                         <li>
-                            <Link
-                                tabIndex={-1}
-                                className='block relative'
-                                to={`characters`}
-                            >
+                            <Link className='block relative' to={`characters`}>
                                 Characters
                             </Link>
                         </li>
                         <li>
-                            <Link
-                                tabIndex={-1}
-                                className='block relative'
-                                to={`monsters`}
-                            >
+                            <Link className='block relative' to={`monsters`}>
                                 Monsters
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className='block relative' to={`about`}>
+                                About
                             </Link>
                         </li>
                     </ul>

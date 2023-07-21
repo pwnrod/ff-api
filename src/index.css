@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: 'FFMenu';
-    src: url('../public/Reactor7.woff');
+    src: url('/Reactor7.woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

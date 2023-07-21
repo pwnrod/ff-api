@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAppContext } from '../hooks/useAppContext';
 import CharacterCard from '../components/CharacterCard';
 import Pagination from '../components/Pagination';
 import useFetchCharacters from '../hooks/useFetchCharacters';
@@ -8,6 +9,12 @@ const ITEMS_PER_PAGE = 24;
 const CharactersPage: React.FC = () => {
     const { data, loading, error } = useFetchCharacters();
     const [currentPage, setCurrentPage] = useState(1);
+
+    const { setPageName } = useAppContext();
+
+    useEffect(() => {
+        setPageName('Characters');
+    }, [setPageName]);
 
     if (loading) return 'Loading...';
     if (error) return 'Error: ' + error.message;
@@ -19,7 +26,7 @@ const CharactersPage: React.FC = () => {
         const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
         const selectedData = data?.slice(
             startIndex,
-            startIndex + ITEMS_PER_PAGE
+            startIndex + ITEMS_PER_PAGE,
         );
 
         renderedCharacters = selectedData?.map((character) => {
