@@ -4,6 +4,7 @@ const Time = () => {
     const [hour, setHour] = useState('00');
     const [minute, setMinute] = useState('00');
     const [second, setSecond] = useState('00');
+    const [isClockMaxed, setIsClockMaxed] = useState(false);
 
     useEffect(() => {
         const update = () => {
@@ -22,11 +23,22 @@ const Time = () => {
         return () => clearInterval(interval);
     }, []);
 
+    const handleTimeClick = () => {
+        setIsClockMaxed(!isClockMaxed);
+    };
+
+    const hourDisplay = isClockMaxed ? '99' : hour;
+    const minuteDisplay = isClockMaxed ? '59' : minute;
+    const secondDisplay = isClockMaxed ? '59' : second;
+
     return (
         <div className='flex justify-between items-center space-x-3'>
-            <p>Time</p>
+            <button className='relative' onClick={handleTimeClick}>
+                Time
+            </button>
             <div className='text-bold w-20 text-right'>
-                <span>{hour}</span>:<span>{minute}</span>:<span>{second}</span>
+                <span>{hourDisplay}</span>:<span>{minuteDisplay}</span>:
+                <span>{secondDisplay}</span>
             </div>
         </div>
     );
