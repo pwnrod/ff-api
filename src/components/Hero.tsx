@@ -7,7 +7,7 @@ const Hero = () => {
             <article className='sm:w-2/3'>
                 <h1 className='max-w-md text-3xl font-bold text-center md:text-4xl sm:text-left'>
                     Embark on a Journey Through{' '}
-                    <span className='text-cornflowerBlue text-4xl md:text-5xl'>
+                    <span className='text-ffLightBlue text-4xl md:text-5xl'>
                         FINAL FANTASY
                     </span>
                 </h1>

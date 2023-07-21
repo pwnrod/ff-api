@@ -6,28 +6,27 @@ type Props = {
 
 const CharacterCard = ({ character }: Props) => {
     return (
-        <div className='max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700'>
-            <figure className='bg-slate-300 rounded-t-lg max-h-28 overflow-hidden'>
+        <div className='ff-dialog flex'>
+            <div className='bg-white w-20 h-32 relative mr-6'>
                 <img
-                    className='rounded-t-lg mx-auto h-28'
                     src={character.pictures[0]?.url}
-                    alt={`A lil image of ${character.name}`}
+                    className='object-cover w-full h-full'
+                    alt={`An image of ${character.name}`}
                 />
-            </figure>
-            <div className='p-5 font-normal text-gray-700 dark:text-gray-400'>
-                <a href='#'>
-                    <h5 className='mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white'>
-                        {character.name}
-                    </h5>
-                </a>
-                <p className='mb-3'>Origin: {character.origin}</p>
-                <p className='mb-3'>Age: {character.age}</p>
-                <p className='mb-3'>Gender: {character.gender}</p>
-                <p className='mb-3'>
-                    Height:{' '}
-                    {character.height === '??'
-                        ? character.height
-                        : character.height + 'm'}
+            </div>
+            <div className='flex flex-col text-xl justify-center'>
+                <h3 className='text-2xl'>{character.name}</h3>
+                <p>
+                    <span className='text-ffLightBlue mr-2'>AGE</span>
+                    {character.age}
+                </p>
+                <p>
+                    <span className='text-ffLightBlue mr-2'>JOB</span>
+                    {character.job}
+                </p>
+                <p>
+                    <span className='text-ffLightBlue mr-2'>ORIGIN</span>
+                    {character.origin}
                 </p>
             </div>
         </div>

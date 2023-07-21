@@ -12,6 +12,7 @@ export default {
         ffGray: '#424542',
         ffBlue: '#04009d',
         ffDarkBlue: '#06004d',
+        ffLightBlue: '#12dfe2',
       },
     },
   },

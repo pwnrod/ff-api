@@ -4,9 +4,9 @@ import CharacterCard from '../components/CharacterCard';
 import Pagination from '../components/Pagination';
 import useFetchCharacters from '../hooks/useFetchCharacters';
 
-const ITEMS_PER_PAGE = 24;
+const ITEMS_PER_PAGE = 6;
 
-const CharactersPage: React.FC = () => {
+const CharactersPage = () => {
     const { data, loading, error } = useFetchCharacters();
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -35,25 +35,18 @@ const CharactersPage: React.FC = () => {
     }
 
     return (
-        <main className='max-w-4xl mx-auto'>
-            <div className='flex justify-between px-4'>
-                <h1 className='text-3xl'>Characters</h1>
+        <main className='max-w-5xl mx-auto pr-24 relative'>
+            <section className='ff-dialog p-12'>
                 <Pagination
-                    currentPage={currentPage}
                     onPageChange={setCurrentPage}
+                    currentPage={currentPage}
                     totalCount={totalCount}
                     pageSize={ITEMS_PER_PAGE}
                 />
-            </div>
-            <div className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-4 my-4'>
-                {renderedCharacters}
-            </div>
-            <Pagination
-                currentPage={currentPage}
-                onPageChange={setCurrentPage}
-                totalCount={totalCount}
-                pageSize={ITEMS_PER_PAGE}
-            />
+                <div className='grid grid-cols-2 grid-rows-3 gap-10'>
+                    {renderedCharacters}
+                </div>
+            </section>
         </main>
     );
 };

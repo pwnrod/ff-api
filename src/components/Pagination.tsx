@@ -61,7 +61,7 @@ const Pagination = ({
     }
 
     return (
-        <ul className='flex text-md items-center px-4 space-x-2'>
+        <ul className='ff-dialog flex absolute -top-1 left-0 text-md px-4 space-x-2'>
             <li className='ml-auto text-lg'>
                 <button
                     onClick={onPrev}
