@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 
-interface Props {
+type Props = {
     totalCount: number;
     pageSize: number;
     siblingCount?: number;
     currentPage: number;
-}
+};
 
 export const usePagination = ({
     totalCount,
@@ -28,7 +28,7 @@ export const usePagination = ({
         const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
         const rightSiblingIndex = Math.min(
             currentPage + siblingCount,
-            totalPageCount
+            totalPageCount,
         );
 
         const shouldShowLeftDots = leftSiblingIndex > 2;

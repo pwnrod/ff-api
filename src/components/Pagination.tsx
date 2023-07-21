@@ -1,23 +1,22 @@
 import { GrNext, GrPrevious } from 'react-icons/gr';
 import { usePagination } from '../hooks/usePagination';
 
-interface Props {
+type Props = {
     onPageChange: (newPage: number) => void;
     totalCount: number;
     siblingCount?: number;
     currentPage: number;
     pageSize: number;
     className?: string;
-}
+};
 
-const Pagination: React.FC<Props> = ({
+const Pagination = ({
     onPageChange,
     totalCount,
     siblingCount = 1,
     currentPage,
     pageSize,
-    className,
-}) => {
+}: Props) => {
     const paginationRange = usePagination({
         currentPage,
         totalCount,
@@ -45,7 +44,7 @@ const Pagination: React.FC<Props> = ({
             paginationItems.push(
                 <li key={`dots${pageNumber}`}>
                     <span>&#8230;</span>
-                </li>
+                </li>,
             );
         }
         paginationItems.push(
@@ -56,7 +55,7 @@ const Pagination: React.FC<Props> = ({
                 >
                     {pageNumber}
                 </button>
-            </li>
+            </li>,
         );
         lastPageNumber = pageNumber;
     }
