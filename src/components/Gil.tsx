@@ -10,6 +10,12 @@ const Gil = () => {
         setGil(getRandomGil(20000, 150000));
     }, []);
 
+    useEffect(() => {
+        if (gil === MAX_GIL) {
+            void playFanfare();
+        }
+    }, [gil]);
+
     const playFanfare = async () => {
         const fanfare = victoryFanfareRef.current;
         fanfare.volume = 0.4;
@@ -24,14 +30,7 @@ const Gil = () => {
     };
 
     const handleGilClick = () => {
-        setGil((prevGil) => {
-            const newGil =
-                prevGil < MAX_GIL ? getRandomGil(prevGil, MAX_GIL) : prevGil;
-            if (newGil === MAX_GIL) {
-                void playFanfare();
-            }
-            return newGil;
-        });
+        setGil(getRandomGil(gil, MAX_GIL));
     };
 
     return (
