@@ -2,23 +2,25 @@ const Hero = () => {
     return (
         <section
             id='hero'
-            className='flex flex-col-reverse justify-center sm:flex-row p-6 md:py-32 items-center gap-8 mb-12'
+            className='ff-dialog flex flex-col-reverse justify-center sm:flex-row p-12 items-center gap-8'
         >
-            <article className='sm:w-1/2'>
-                <h1 className='max-w-md text-4xl font-bold text-center md:text-5xl sm:text-left text-slate-900 dark:text-white'>
+            <article className='sm:w-2/3'>
+                <h1 className='max-w-md text-3xl font-bold text-center md:text-4xl sm:text-left'>
                     Embark on a Journey Through{' '}
-                    <span className='text-cornflowerBlue'>Final Fantasy</span>
+                    <span className='text-cornflowerBlue text-4xl md:text-5xl'>
+                        FINAL FANTASY
+                    </span>
                 </h1>
-                <p className='max-w-md text-2xl mt-4 text-center sm:text-left text-slate-700 dark:text-slate-400'>
-                    Explore a concise overview of the acclaimed series - a
-                    curated selection of characters, monsters, and games awaits
+                <p className='max-w-md text-2xl mt-4 text-center sm:text-left leading-none'>
+                    Traverse a concise overview of the acclaimed series - a
+                    curated selection of games, characters and monsters awaits
                     your discovery.
                 </p>
             </article>
-            <figure className='sm:w-1/2'>
+            <figure className='sm:w-1/3'>
                 <img
-                    className='max-w-[15rem] md:max-w-xs sm:ml-auto'
-                    src='../../public/cactuar.png'
+                    className='max-w-[15rem] sm:ml-auto w-full'
+                    src='/cactuar.png'
                     alt='A cactuar doing cactuar things'
                 />
             </figure>

@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/css/Header.css';
 
 const Header = () => {
     const [isMenuExpanded, setIsMenuExpanded] = useState(false);
@@ -18,28 +17,33 @@ const Header = () => {
             }
         };
 
+        const handleEsc = () => {
+            setIsMenuExpanded(false);
+        };
+
         document.addEventListener('click', handleClickOutside);
+        document.addEventListener('keydown', handleEsc);
+
         return () => {
             document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('keydown', handleEsc);
         };
     }, [navRef]);
 
     return (
-        <header className='px-6'>
+        <header className='max-w-5xl mx-auto'>
             <section
                 id='header'
-                className='ff-dialog max-w-5xl mx-auto flex justify-between items-center mt-2'
+                className='ff-dialog max-w-4xl mx-auto px-6 py-3 flex justify-between items-center mt-2'
             >
                 <div className='flex items-center space-x-6'>
                     <img
-                        src='../../public/logo.jpg'
+                        src='../../public/chocobo.png'
                         alt='a stupid AI generated logo'
-                        className='rounded-full w-20'
+                        className='rounded-full w-10'
                     />
-                    <h2 className='text-3xl text-white text-center font-medium'>
-                        Final Fantasy
-                        <br />
-                        Encyclopedia
+                    <h2 className='text-2xl text-white text-center font-medium'>
+                        Final Fantasy Encyclopedia
                     </h2>
                 </div>
                 <div>
@@ -57,22 +61,34 @@ const Header = () => {
                 <nav
                     id='primay-nav'
                     ref={navRef}
-                    className='text-white text-xl max-w-5xl mx-auto relative'
+                    className='text-white text-xl relative'
                     aria-label='main'
                 >
-                    <ul className='ff-dialog mt-1 max-w-[10rem] ml-auto absolute right-0 px-12'>
+                    <ul className='ff-dialog mt-1 max-w-[10rem] ml-auto absolute right-0 -top-5 px-6 py-3'>
                         <li>
-                            <Link className='block relative' to={`games`}>
+                            <Link
+                                tabIndex={-1}
+                                className='block relative'
+                                to={`games`}
+                            >
                                 Games
                             </Link>
                         </li>
                         <li>
-                            <Link className='block relative' to={`characters`}>
+                            <Link
+                                tabIndex={-1}
+                                className='block relative'
+                                to={`characters`}
+                            >
                                 Characters
                             </Link>
                         </li>
                         <li>
-                            <Link className='block relative' to={`monsters`}>
+                            <Link
+                                tabIndex={-1}
+                                className='block relative'
+                                to={`monsters`}
+                            >
                                 Monsters
                             </Link>
                         </li>
