@@ -1,10 +1,18 @@
 import { useEffect, useState } from 'react';
+import useStatusText from '../hooks/useStatusText';
+import { useAppContext } from '../hooks/useAppContext';
 
 const Time = () => {
+    const { setStatusText } = useAppContext();
     const [hour, setHour] = useState('00');
     const [minute, setMinute] = useState('00');
     const [second, setSecond] = useState('00');
     const [isClockMaxed, setIsClockMaxed] = useState(false);
+    const easterEggMessage = "What's this?";
+    const clockMaxedMessage =
+        'You played so long that the clock just... stopped?';
+    const statusText = !isClockMaxed ? easterEggMessage : clockMaxedMessage;
+    const statusTextHandlers = useStatusText(statusText);
 
     useEffect(() => {
         const update = () => {
@@ -25,6 +33,8 @@ const Time = () => {
 
     const handleTimeClick = () => {
         setIsClockMaxed(!isClockMaxed);
+        const statusText = isClockMaxed ? easterEggMessage : clockMaxedMessage;
+        setStatusText(statusText);
     };
 
     const hourDisplay = isClockMaxed ? '99' : hour;
@@ -33,7 +43,11 @@ const Time = () => {
 
     return (
         <div className='flex justify-between items-center space-x-3'>
-            <button className='relative' onClick={handleTimeClick}>
+            <button
+                {...statusTextHandlers}
+                className='relative'
+                onClick={handleTimeClick}
+            >
                 Time
             </button>
             <div className='text-bold w-20 text-right'>

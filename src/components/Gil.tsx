@@ -1,10 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
+import useStatusText from '../hooks/useStatusText';
 
 const MAX_GIL = 99999999;
 
 const Gil = () => {
     const [gil, setGil] = useState(0);
     const victoryFanfareRef = useRef(new Audio('/ff7-fanfare.mp3'));
+    const statusTextHandlers = useStatusText('Max it out!');
 
     useEffect(() => {
         setGil(getRandomGil(20000, 150000));
@@ -35,7 +37,11 @@ const Gil = () => {
 
     return (
         <div className='flex justify-between items-center'>
-            <button className='relative' onClick={handleGilClick}>
+            <button
+                {...statusTextHandlers}
+                className='relative'
+                onClick={handleGilClick}
+            >
                 Gil
             </button>
             <span>{gil}</span>

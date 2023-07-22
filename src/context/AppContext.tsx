@@ -3,8 +3,8 @@ import { createContext, useState } from 'react';
 type AppContextProps = {
     pageName: string;
     setPageName: React.Dispatch<React.SetStateAction<string>>;
-    statusMessage: string;
-    setStatusMessage: React.Dispatch<React.SetStateAction<string>>;
+    statusText: string;
+    setStatusText: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -15,11 +15,11 @@ type AppProviderProps = {
 
 export const AppProvider = ({ children }: AppProviderProps) => {
     const [pageName, setPageName] = useState<string>('');
-    const [statusMessage, setStatusMessage] = useState<string>('');
+    const [statusText, setStatusText] = useState<string>('');
 
     return (
         <AppContext.Provider
-            value={{ pageName, setPageName, statusMessage, setStatusMessage }}
+            value={{ pageName, setPageName, statusText, setStatusText }}
         >
             {children}
         </AppContext.Provider>
