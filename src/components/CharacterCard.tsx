@@ -6,7 +6,7 @@ type Props = {
 
 const CharacterCard = ({ character }: Props) => {
     return (
-        <div className='ff-dialog flex'>
+        <div className='ff-dialog flex' data-message={character.description}>
             <div className='bg-white w-20 h-32 relative mr-6'>
                 <img
                     src={character.pictures[0]?.url}

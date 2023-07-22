@@ -5,6 +5,7 @@ const Header = () => {
     const [isMenuExpanded, setIsMenuExpanded] = useState(true);
     const navRef = useRef<HTMLDivElement | null>(null);
     const menuButtonRef = useRef<HTMLButtonElement | null>(null);
+    const menuButtonVerb = isMenuExpanded ? 'Hide' : 'Show';
 
     return (
         <header className='max-w-5xl mx-auto pr-24 relative'>
@@ -26,6 +27,7 @@ const Header = () => {
                     <button
                         ref={menuButtonRef}
                         onClick={() => setIsMenuExpanded(!isMenuExpanded)}
+                        data-message={`${menuButtonVerb} the Main Menu`}
                         className='text-xl focus:outline-none relative'
                     >
                         {isMenuExpanded ? 'Hide Menu' : 'Menu'}
@@ -42,27 +44,47 @@ const Header = () => {
                 >
                     <ul className='ff-dialog mt-1 max-w-[10rem] px-6 py-3'>
                         <li>
-                            <Link className='block relative' to={`/`}>
+                            <Link
+                                data-message='Go to the Homepage'
+                                className='block relative'
+                                to={`/`}
+                            >
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link className='block relative' to={`games`}>
+                            <Link
+                                data-message='Go to the Games Page'
+                                className='block relative'
+                                to={`games`}
+                            >
                                 Games
                             </Link>
                         </li>
                         <li>
-                            <Link className='block relative' to={`characters`}>
+                            <Link
+                                data-message='Go to the Characters Page'
+                                className='block relative'
+                                to={`characters`}
+                            >
                                 Characters
                             </Link>
                         </li>
                         <li>
-                            <Link className='block relative' to={`monsters`}>
+                            <Link
+                                data-message='Go to the Monsters Page'
+                                className='block relative'
+                                to={`monsters`}
+                            >
                                 Monsters
                             </Link>
                         </li>
                         <li>
-                            <Link className='block relative' to={`about`}>
+                            <Link
+                                data-message='Go to the About Page'
+                                className='block relative'
+                                to={`about`}
+                            >
                                 About
                             </Link>
                         </li>

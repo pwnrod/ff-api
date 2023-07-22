@@ -35,19 +35,21 @@ const GamesPage = () => {
     }
 
     return (
-        <main className='max-w-5xl mx-auto pr-24 relative'>
-            <section className='ff-dialog p-12'>
-                <Pagination
-                    onPageChange={setCurrentPage}
-                    currentPage={currentPage}
-                    totalCount={totalCount}
-                    pageSize={ITEMS_PER_PAGE}
-                />
-                <div className='grid grid-cols-2 grid-rows-3 gap-10'>
-                    {renderedGames}
-                </div>
-            </section>
-        </main>
+        <>
+            <main className='max-w-5xl mx-auto pr-24 relative'>
+                <section className='ff-dialog p-12'>
+                    <Pagination
+                        onPageChange={setCurrentPage}
+                        currentPage={currentPage}
+                        totalCount={totalCount}
+                        pageSize={ITEMS_PER_PAGE}
+                    />
+                    <div className='grid grid-cols-2 grid-rows-3 gap-10'>
+                        {renderedGames}
+                    </div>
+                </section>
+            </main>
+        </>
     );
 };
 
