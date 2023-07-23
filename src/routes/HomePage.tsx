@@ -3,14 +3,17 @@ import { useEffect } from 'react';
 import Hero from '../components/Hero';
 
 const HomePage = () => {
-    const { setPageName } = useAppContext();
+    const { setPageName, isMenuOpen } = useAppContext();
 
     useEffect(() => {
         setPageName('Homepage');
     }, [setPageName]);
 
     return (
-        <main className='max-w-5xl mx-auto pr-24 relative'>
+        <main
+            className={`max-w-5xl mx-auto relative${isMenuOpen ? ' pr-24' : ''
+                }`}
+        >
             <Hero />
         </main>
     );
