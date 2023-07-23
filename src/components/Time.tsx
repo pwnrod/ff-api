@@ -9,8 +9,7 @@ const Time = () => {
     const [second, setSecond] = useState('00');
     const [isClockMaxed, setIsClockMaxed] = useState(false);
     const easterEggMessage = "What's this?";
-    const clockMaxedMessage =
-        'You played so long that the clock just... stopped?';
+    const clockMaxedMessage = 'Did it break?';
     const statusText = !isClockMaxed ? easterEggMessage : clockMaxedMessage;
     const statusTextHandlers = useStatusText(statusText);
 
