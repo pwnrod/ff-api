@@ -1,4 +1,6 @@
 import { useRef } from 'react';
+import { animated } from '@react-spring/web';
+import useAnimatedPadding from '../hooks/useAnimatedPadding';
 import NavBar from './NavBar';
 import useStatusText from '../hooks/useStatusText';
 import { useAppContext } from '../hooks/useAppContext';
@@ -11,11 +13,12 @@ const Header = () => {
     const menuButtonStatusTextHandlers = useStatusText(
         `${menuButtonVerb} the Main Menu`
     );
+    const animatedStyles = useAnimatedPadding();
 
     return (
-        <header
-            className={`max-w-5xl mx-auto relative${isMenuOpen ? ' pr-24' : ''
-                }`}
+        <animated.header
+            style={animatedStyles}
+            className='max-w-5xl mx-auto relative'
         >
             <section
                 id='header'
@@ -44,7 +47,7 @@ const Header = () => {
             </section>
 
             {isMenuOpen && <NavBar navRef={navRef} />}
-        </header>
+        </animated.header>
     );
 };
 
