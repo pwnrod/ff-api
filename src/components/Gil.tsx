@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import useStatusText from '../hooks/useStatusText';
 import { useAppContext } from '../hooks/useAppContext';
 import { getRandomGil } from '../utils/utils';
@@ -10,16 +10,7 @@ const Gil = () => {
     const statusTextHandlers = useStatusText('Max it out!');
     const { gil, setGil } = useAppContext();
     const prevGilRef = useRef(gil);
-
-    useEffect(() => {
-        if (gil === MAX_GIL && gil !== prevGilRef.current) {
-            void playFanfare();
-        }
-
-        prevGilRef.current = gil;
-    }, [gil]);
-
-    const playFanfare = async () => {
+    const playFanfare = useCallback(async () => {
         const fanfare = victoryFanfareRef.current;
         fanfare.volume = 0.4;
         fanfare.pause();
@@ -30,7 +21,15 @@ const Gil = () => {
         } catch (error) {
             console.error('Failed to play the secret music... bummer: ', error);
         }
-    };
+    }, []);
+
+    useEffect(() => {
+        if (gil === MAX_GIL && gil !== prevGilRef.current) {
+            void playFanfare();
+        }
+
+        prevGilRef.current = gil;
+    }, [gil, playFanfare]);
 
     const handleGilClick = () => {
         setGil(getRandomGil(gil, MAX_GIL));
