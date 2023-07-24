@@ -22,7 +22,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     const [pageName, setPageName] = useState<string>('');
     const [statusText, setStatusText] = useState<string>('');
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
-    const [gil, setGil] = useState(getRandomGil(20000, 150000));
+    const [gil, setGil] = useState(() => getRandomGil(20000, 150000));
 
     return (
         <AppContext.Provider
