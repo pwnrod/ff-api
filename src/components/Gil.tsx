@@ -9,11 +9,14 @@ const Gil = () => {
     const victoryFanfareRef = useRef(new Audio('/ff7-fanfare.mp3'));
     const statusTextHandlers = useStatusText('Max it out!');
     const { gil, setGil } = useAppContext();
+    const prevGilRef = useRef(gil);
 
     useEffect(() => {
-        if (gil === MAX_GIL) {
+        if (gil === MAX_GIL && gil !== prevGilRef.current) {
             void playFanfare();
         }
+
+        prevGilRef.current = gil;
     }, [gil]);
 
     const playFanfare = async () => {
