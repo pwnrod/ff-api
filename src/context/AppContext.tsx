@@ -10,6 +10,8 @@ type AppContextProps = {
     setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
     gil: number;
     setGil: React.Dispatch<React.SetStateAction<number>>;
+    isSoundOn: boolean;
+    setIsSoundOn: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -23,6 +25,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     const [statusText, setStatusText] = useState<string>('');
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
     const [gil, setGil] = useState(() => getRandomGil(20000, 150000));
+    const [isSoundOn, setIsSoundOn] = useState<boolean>(true);
 
     return (
         <AppContext.Provider
@@ -35,6 +38,8 @@ export const AppProvider = ({ children }: AppProviderProps) => {
                 setIsMenuOpen,
                 gil,
                 setGil,
+                isSoundOn,
+                setIsSoundOn,
             }}
         >
             {children}

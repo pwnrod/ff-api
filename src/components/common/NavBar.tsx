@@ -16,6 +16,7 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
     );
     const monstersStatusTextHandlers = useStatusText('Go to the Monsters Page');
     const aboutStatusTextHandlers = useStatusText('Go to the About Page');
+    const configStatusTextHandlers = useStatusText('Go to the Config Page');
     const transitions = useFadeTransition(isMenuOpen);
 
     return transitions(
@@ -72,6 +73,15 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
                                 to={`about`}
                             >
                                 About
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                {...configStatusTextHandlers}
+                                className='ff-hover-finger block relative'
+                                to={`config`}
+                            >
+                                Config
                             </Link>
                         </li>
                     </ul>

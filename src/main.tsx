@@ -8,6 +8,7 @@ import CharactersPage from './pages/CharactersPage';
 import HomePage from './pages/HomePage';
 import GamesPage from './pages/GamesPage';
 import MonstersPage from './pages/MonstersPage';
+import ConfigPage from './pages/ConfigPage';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: '/monsters',
         element: <MonstersPage />,
+      },
+      {
+        path: '/config',
+        element: <ConfigPage />,
       },
     ],
   },
