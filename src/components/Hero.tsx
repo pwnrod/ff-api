@@ -16,6 +16,15 @@ const Hero = () => {
                     curated selection of games, characters and monsters awaits
                     your discovery.
                 </p>
+                <p className='max-w-md text-2xl mt-4 text-center sm:text-left leading-none'>
+                    (The{' '}
+                    <a href='www.moogleapi.com' target='_blank'>
+                        moogleAPI
+                    </a>{' '}
+                    doesn't expose a whole lot of data and is no longer
+                    maintained. Thankfully there's still enough to have some fun
+                    with!)
+                </p>
             </article>
             <figure className='sm:w-1/3'>
                 <img

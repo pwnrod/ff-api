@@ -3,14 +3,16 @@ import { useAppContext } from '../hooks/useAppContext';
 import GameCard from '../components/GameCard';
 import Pagination from '../components/Pagination';
 import useFetchGames from '../hooks/useFetchGames';
+import { animated } from '@react-spring/web';
+import useAnimatedPadding from '../hooks/useAnimatedPadding';
 
 const ITEMS_PER_PAGE = 6;
 
 const GamesPage = () => {
     const { data, loading, error } = useFetchGames();
     const [currentPage, setCurrentPage] = useState(1);
-
     const { setPageName } = useAppContext();
+    const animatedStyles = useAnimatedPadding();
 
     useEffect(() => {
         setPageName('Games');
@@ -36,7 +38,9 @@ const GamesPage = () => {
 
     return (
         <>
-            <main className='max-w-5xl mx-auto pr-24 relative'>
+            <animated.main
+                style={animatedStyles}
+                className='max-w-5xl mx-auto relative'>
                 <section className='ff-dialog p-12'>
                     <Pagination
                         onPageChange={setCurrentPage}
@@ -48,7 +52,7 @@ const GamesPage = () => {
                         {renderedGames}
                     </div>
                 </section>
-            </main>
+            </animated.main>
         </>
     );
 };

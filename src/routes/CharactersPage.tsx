@@ -3,14 +3,16 @@ import { useAppContext } from '../hooks/useAppContext';
 import CharacterCard from '../components/CharacterCard';
 import Pagination from '../components/Pagination';
 import useFetchCharacters from '../hooks/useFetchCharacters';
+import { animated } from '@react-spring/web';
+import useAnimatedPadding from '../hooks/useAnimatedPadding';
 
 const ITEMS_PER_PAGE = 6;
 
 const CharactersPage = () => {
     const { data, loading, error } = useFetchCharacters();
     const [currentPage, setCurrentPage] = useState(1);
-
     const { setPageName } = useAppContext();
+    const animatedStyles = useAnimatedPadding();
 
     useEffect(() => {
         setPageName('Characters');
@@ -26,7 +28,7 @@ const CharactersPage = () => {
         const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
         const selectedData = data?.slice(
             startIndex,
-            startIndex + ITEMS_PER_PAGE,
+            startIndex + ITEMS_PER_PAGE
         );
 
         renderedCharacters = selectedData?.map((character) => {
@@ -35,7 +37,10 @@ const CharactersPage = () => {
     }
 
     return (
-        <main className='max-w-5xl mx-auto pr-24 relative'>
+        <animated.main
+            style={animatedStyles}
+            className='max-w-5xl mx-auto relative'
+        >
             <section className='ff-dialog p-12'>
                 <Pagination
                     onPageChange={setCurrentPage}
@@ -47,7 +52,7 @@ const CharactersPage = () => {
                     {renderedCharacters}
                 </div>
             </section>
-        </main>
+        </animated.main>
     );
 };
 

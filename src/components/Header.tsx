@@ -46,7 +46,7 @@ const Header = () => {
                 </div>
             </section>
 
-            {isMenuOpen && <NavBar navRef={navRef} />}
+            <NavBar navRef={navRef} isMenuOpen={isMenuOpen} />
         </animated.header>
     );
 };

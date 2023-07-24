@@ -3,14 +3,16 @@ import { useAppContext } from '../hooks/useAppContext';
 import MonsterCard from '../components/MonsterCard';
 import Pagination from '../components/Pagination';
 import useFetchMonsters from '../hooks/useFetchMonsters';
+import { animated } from '@react-spring/web';
+import useAnimatedPadding from '../hooks/useAnimatedPadding';
 
 const ITEMS_PER_PAGE = 6;
 
 const MonstersPage = () => {
     const { data, loading, error } = useFetchMonsters();
     const [currentPage, setCurrentPage] = useState(1);
-
     const { setPageName, isMenuOpen } = useAppContext();
+    const animatedStyles = useAnimatedPadding();
 
     useEffect(() => {
         setPageName('Monsters');
@@ -35,7 +37,8 @@ const MonstersPage = () => {
     }
 
     return (
-        <main
+        <animated.main
+            style={animatedStyles}
             className={`max-w-5xl mx-auto relative${isMenuOpen ? ' pr-24' : ''
                 }`}
         >
@@ -50,7 +53,7 @@ const MonstersPage = () => {
                     {renderedMonsters}
                 </div>
             </section>
-        </main>
+        </animated.main>
     );
 };
 
