@@ -37,7 +37,7 @@ const Gil = () => {
         <div className='flex justify-between items-center'>
             <button
                 {...statusTextHandlers}
-                className='relative'
+                className='ff-hover-finger relative'
                 onClick={handleGilClick}
             >
                 Gil

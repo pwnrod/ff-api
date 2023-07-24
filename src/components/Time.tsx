@@ -44,7 +44,7 @@ const Time = () => {
         <div className='flex justify-between items-center space-x-3'>
             <button
                 {...statusTextHandlers}
-                className='relative'
+                className='relative ff-hover-finger'
                 onClick={handleTimeClick}
             >
                 Time

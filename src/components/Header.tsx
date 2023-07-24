@@ -39,7 +39,7 @@ const Header = () => {
                         ref={menuButtonRef}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         {...menuButtonStatusTextHandlers}
-                        className='text-xl focus:outline-none relative'
+                        className='ff-hover-finger text-xl focus:outline-none relative'
                     >
                         {isMenuOpen ? 'Hide Menu' : 'Menu'}
                     </button>

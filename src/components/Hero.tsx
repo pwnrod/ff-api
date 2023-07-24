@@ -39,7 +39,7 @@ const Hero = () => {
                     with!)
                 </p>
             </article>
-            <figure className='sm:w-1/3'>
+            <figure className='ff-hover-finger sm:w-1/3'>
                 <animated.img
                     onClick={() => setIsCactuarClicked(!isCactuarClicked)}
                     {...cactuarStatusTextHandlers}

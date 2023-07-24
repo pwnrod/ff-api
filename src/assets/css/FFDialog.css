@@ -17,7 +17,7 @@
     text-shadow: 2px 2px #212421, 1px 1px #212021;
 }
 
-.ff-dialog a::before {
+.ff-dialog .ff-hover-finger::before {
     content: '';
     position: absolute;
     display: none;
@@ -30,31 +30,14 @@
     transform: translateX(-5.25rem);
 }
 
-.ff-dialog a:hover {
+.ff-dialog .ff-hover-finger:hover {
     cursor: default;
 }
 
-.ff-dialog a:hover::before {
+.ff-dialog .ff-hover-finger:hover::before {
     display: block;
 }
 
-.ff-dialog button::before {
-    content: '';
-    position: absolute;
-    display: none;
-    background: url('/ff-cursor.png');
-    top: -0.75rem;
-    width: 5rem;
-    height: 4rem;
-    background-size: cover;
-    background-repeat: none;
-    transform: translateX(-5.25rem);
-}
-
-.ff-dialog button:hover {
-    cursor: default;
-}
-
-.ff-dialog button:hover::before {
-    display: block;
+#hero .ff-hover-finger::before {
+    top: 40%;
 }

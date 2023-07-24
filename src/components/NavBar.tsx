@@ -32,7 +32,7 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
                         <li>
                             <Link
                                 {...homeStatusTextHandlers}
-                                className='block relative'
+                                className='ff-hover-finger block relative'
                                 to={`/`}
                             >
                                 Home
@@ -41,7 +41,7 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
                         <li>
                             <Link
                                 {...gamesStatusTextHandlers}
-                                className='block relative'
+                                className='ff-hover-finger block relative'
                                 to={`games`}
                             >
                                 Games
@@ -50,7 +50,7 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
                         <li>
                             <Link
                                 {...charactersStatusTextHandlers}
-                                className='block relative'
+                                className='ff-hover-finger block relative'
                                 to={`characters`}
                             >
                                 Characters
@@ -59,7 +59,7 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
                         <li>
                             <Link
                                 {...monstersStatusTextHandlers}
-                                className='block relative'
+                                className='ff-hover-finger block relative'
                                 to={`monsters`}
                             >
                                 Monsters
@@ -68,7 +68,7 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
                         <li>
                             <Link
                                 {...aboutStatusTextHandlers}
-                                className='block relative'
+                                className='ff-hover-finger block relative'
                                 to={`about`}
                             >
                                 About
