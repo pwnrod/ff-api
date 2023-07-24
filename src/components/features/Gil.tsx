@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
-import useStatusText from '../hooks/useStatusText';
-import { useAppContext } from '../hooks/useAppContext';
-import { getRandomGil } from '../utils/utils';
+import useStatusText from '../../hooks/useStatusText';
+import { useAppContext } from '../../hooks/useAppContext';
+import { getRandomGil } from '../../utils/utils';
 
 const MAX_GIL = 99999999;
 

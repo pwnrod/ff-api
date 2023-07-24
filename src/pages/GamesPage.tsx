@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAppContext } from '../hooks/useAppContext';
-import GameCard from '../components/GameCard';
+import GameCard from '../components/cards/GameCard';
 import Pagination from '../components/Pagination';
 import useFetchGames from '../hooks/useFetchGames';
 import { animated } from '@react-spring/web';
@@ -28,7 +28,7 @@ const GamesPage = () => {
         const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
         const selectedData = data?.slice(
             startIndex,
-            startIndex + ITEMS_PER_PAGE
+            startIndex + ITEMS_PER_PAGE,
         );
 
         renderedGames = selectedData?.map((game) => {
@@ -40,7 +40,8 @@ const GamesPage = () => {
         <>
             <animated.main
                 style={animatedStyles}
-                className='max-w-5xl mx-auto relative'>
+                className='max-w-5xl mx-auto relative'
+            >
                 <section className='ff-dialog p-12'>
                     <Pagination
                         onPageChange={setCurrentPage}

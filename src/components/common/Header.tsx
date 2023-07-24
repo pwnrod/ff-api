@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { animated } from '@react-spring/web';
-import useAnimatedPadding from '../hooks/useAnimatedPadding';
+import useAnimatedPadding from '../../hooks/useAnimatedPadding';
 import NavBar from './NavBar';
-import useStatusText from '../hooks/useStatusText';
-import { useAppContext } from '../hooks/useAppContext';
+import useStatusText from '../../hooks/useStatusText';
+import { useAppContext } from '../../hooks/useAppContext';
 
 const Header = () => {
     const navRef = useRef<HTMLDivElement | null>(null);
@@ -11,7 +11,7 @@ const Header = () => {
     const menuButtonRef = useRef<HTMLButtonElement | null>(null);
     const menuButtonVerb = isMenuOpen ? 'Hide' : 'Show';
     const menuButtonStatusTextHandlers = useStatusText(
-        `${menuButtonVerb} the Main Menu`
+        `${menuButtonVerb} the Main Menu`,
     );
     const animatedStyles = useAnimatedPadding();
 

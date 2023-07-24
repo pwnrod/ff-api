@@ -1,6 +1,6 @@
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import StatusBar from '../components/StatusBar';
+import Footer from '../components/common/Footer';
+import Header from '../components/common/Header';
+import StatusBar from '../components/common/StatusBar';
 import { AppProvider } from '../context/AppContext';
 import { Outlet } from 'react-router-dom';
 

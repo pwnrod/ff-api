@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import useStatusText from '../hooks/useStatusText';
-import { useAppContext } from '../hooks/useAppContext';
+import useStatusText from '../../hooks/useStatusText';
+import { useAppContext } from '../../hooks/useAppContext';
 
 const Time = () => {
     const { setStatusText } = useAppContext();

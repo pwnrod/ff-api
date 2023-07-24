@@ -1,6 +1,6 @@
 import { SpringValue } from '@react-spring/web';
 import { animated } from '@react-spring/web';
-import { useAppContext } from '../hooks/useAppContext';
+import { useAppContext } from '../../hooks/useAppContext';
 
 type Props = {
     className?: string;

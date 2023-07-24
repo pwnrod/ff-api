@@ -1,9 +1,9 @@
-import { useAppContext } from '../hooks/useAppContext';
+import { useAppContext } from '../../hooks/useAppContext';
 import { animated } from '@react-spring/web';
-import useFadeTransition from '../hooks/useFadeTransition';
+import useFadeTransition from '../../hooks/useFadeTransition';
 import PageName from './PageName';
-import Gil from './Gil';
-import Time from './Time';
+import Gil from '../features/Gil';
+import Time from '../features/Time';
 
 const Footer = () => {
     const { isMenuOpen } = useAppContext();
@@ -24,7 +24,7 @@ const Footer = () => {
                         <PageName className='p-2 min-w-[14rem]' />
                     </animated.section>
                 </footer>
-            )
+            ),
     );
 };
 

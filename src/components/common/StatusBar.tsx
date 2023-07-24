@@ -1,6 +1,6 @@
-import { useAppContext } from '../hooks/useAppContext';
+import { useAppContext } from '../../hooks/useAppContext';
 import { animated, useSpring } from '@react-spring/web';
-import useAnimatedPadding from '../hooks/useAnimatedPadding';
+import useAnimatedPadding from '../../hooks/useAnimatedPadding';
 import PageName from './PageName';
 
 const StatusBar = () => {

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { animated } from '@react-spring/web';
-import useFadeTransition from '../hooks/useFadeTransition';
-import useStatusText from '../hooks/useStatusText';
+import useFadeTransition from '../../hooks/useFadeTransition';
+import useStatusText from '../../hooks/useStatusText';
 
 type Props = {
     navRef: React.MutableRefObject<HTMLDivElement | null>;
@@ -12,7 +12,7 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
     const homeStatusTextHandlers = useStatusText('Go to the Homepage');
     const gamesStatusTextHandlers = useStatusText('Go to the Games Page');
     const charactersStatusTextHandlers = useStatusText(
-        'Go to the Characters Page'
+        'Go to the Characters Page',
     );
     const monstersStatusTextHandlers = useStatusText('Go to the Monsters Page');
     const aboutStatusTextHandlers = useStatusText('Go to the About Page');
@@ -76,7 +76,7 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
                         </li>
                     </ul>
                 </animated.nav>
-            )
+            ),
     );
 };
 

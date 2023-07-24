@@ -6,10 +6,10 @@ const Hero = () => {
     const [isCactuarClicked, setIsCactuarClicked] = useState<boolean>(false);
     const rotationStyles = useSpring({
         transform: isCactuarClicked ? 'rotateY(900deg)' : 'rotateY(0deg)',
-        config: { mass: 2, tension: 185, friction: 20 },
+        config: { mass: 2, tension: 185, friction: 80 },
     });
     const cactuarStatusTextHandlers = useStatusText(
-        'So graceful... send it for a spin.'
+        'So graceful... send it for a spin.',
     );
 
     return (
