@@ -9,7 +9,7 @@ const Hero = () => {
         config: { mass: 2, tension: 185, friction: 80 },
     });
     const cactuarStatusTextHandlers = useStatusText(
-        'So graceful... send it for a spin.',
+        'The Cactuar only uses a physical attack; it has, but never uses, its 1000 Needles attack.',
     );
 
     return (
