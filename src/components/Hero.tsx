@@ -1,4 +1,17 @@
+import { useState } from 'react';
+import useStatusText from '../hooks/useStatusText';
+import { animated, useSpring } from '@react-spring/web';
+
 const Hero = () => {
+    const [isCactuarClicked, setIsCactuarClicked] = useState<boolean>(false);
+    const rotationStyles = useSpring({
+        transform: isCactuarClicked ? 'rotateY(900deg)' : 'rotateY(0deg)',
+        config: { mass: 2, tension: 185, friction: 20 },
+    });
+    const cactuarStatusTextHandlers = useStatusText(
+        'So graceful... send it for a spin.'
+    );
+
     return (
         <section
             id='hero'
@@ -27,7 +40,10 @@ const Hero = () => {
                 </p>
             </article>
             <figure className='sm:w-1/3'>
-                <img
+                <animated.img
+                    onClick={() => setIsCactuarClicked(!isCactuarClicked)}
+                    {...cactuarStatusTextHandlers}
+                    style={rotationStyles}
                     className='max-w-[15rem] sm:ml-auto w-full'
                     src='/cactuar.png'
                     alt='A cactuar doing cactuar things'
