@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { animated } from '@react-spring/web';
 import useAnimatedPadding from '../hooks/useAnimatedPadding';
 import SoundEffectsConfig from '../components/config/SoundEffectsConfig';
+import WindowColorConfig from '../components/config/WindowColorConfig';
 
 const ConfigPage = () => {
     const { setPageName } = useAppContext();
@@ -18,6 +19,7 @@ const ConfigPage = () => {
             className={`max-w-5xl mx-auto relative`}
         >
             <div className='ff-dialog min-h-[20rem] p-12 flex flex-col text-2xl'>
+                <WindowColorConfig />
                 <SoundEffectsConfig />
             </div>
         </animated.main>

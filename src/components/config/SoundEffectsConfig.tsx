@@ -1,6 +1,6 @@
 import { useAppContext } from '../../hooks/useAppContext';
 
-const SoundEffects = () => {
+const SoundEffectsConfig = () => {
     const { isSoundOn, setIsSoundOn } = useAppContext();
 
     const handleToggle = () => {
@@ -33,7 +33,7 @@ const SoundEffects = () => {
                 </span>
                 <span
                     onClick={handleOff}
-                    className={`ff-hover-finger relative ml-20${isSoundOn ? ' text-gray-500' : ''
+                    className={`ff-hover-finger relative ml-16${isSoundOn ? ' text-gray-500' : ''
                         }`}
                 >
                     Off
@@ -43,4 +43,4 @@ const SoundEffects = () => {
     );
 };
 
-export default SoundEffects;
+export default SoundEffectsConfig;
