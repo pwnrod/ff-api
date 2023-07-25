@@ -1,3 +1,9 @@
+.busterSwordCursor {
+    cursor:
+        url('/buster-sword-cursor.png') 14 0,
+        auto;
+}
+
 .ff-dialog {
     margin-top: 0.25rem;
     @apply rounded-md;
@@ -40,6 +46,12 @@
 
 .ff-dialog .ff-hover-finger:hover {
     cursor: default;
+}
+
+.busterSwordCursor .ff-dialog .ff-hover-finger:hover {
+    cursor:
+        url('/buster-sword-cursor.png') 14 0,
+        auto;
 }
 
 .ff-dialog .ff-hover-finger:hover::before {

@@ -12,6 +12,8 @@ type AppContextProps = {
     setGil: React.Dispatch<React.SetStateAction<number>>;
     isSoundOn: boolean;
     setIsSoundOn: React.Dispatch<React.SetStateAction<boolean>>;
+    isCursorBuster: boolean;
+    setIsCursorBuster: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -26,6 +28,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
     const [gil, setGil] = useState(() => getRandomGil(20000, 150000));
     const [isSoundOn, setIsSoundOn] = useState<boolean>(true);
+    const [isCursorBuster, setIsCursorBuster] = useState<boolean>(false);
 
     return (
         <AppContext.Provider
@@ -40,6 +43,8 @@ export const AppProvider = ({ children }: AppProviderProps) => {
                 setGil,
                 isSoundOn,
                 setIsSoundOn,
+                isCursorBuster,
+                setIsCursorBuster,
             }}
         >
             {children}

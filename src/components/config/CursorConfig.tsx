@@ -1,18 +1,18 @@
 import { useAppContext } from '../../hooks/useAppContext';
 
-const SoundEffectsConfig = () => {
-    const { isSoundOn, setIsSoundOn } = useAppContext();
+const CursorConfig = () => {
+    const { isCursorBuster, setIsCursorBuster } = useAppContext();
 
     const handleToggle = () => {
-        setIsSoundOn(!isSoundOn);
+        setIsCursorBuster(!isCursorBuster);
     };
 
     const handleOn = () => {
-        setIsSoundOn(true);
+        setIsCursorBuster(true);
     };
 
     const handleOff = () => {
-        setIsSoundOn(false);
+        setIsCursorBuster(false);
     };
 
     return (
@@ -22,27 +22,27 @@ const SoundEffectsConfig = () => {
                     onClick={handleToggle}
                     className='ff-hover-finger relative text-ffLightBlue'
                 >
-                    Sound effects
+                    Cursor
                 </button>
             </div>
             <p>
                 <span
-                    className={`ff-hover-finger relative ${!isSoundOn ? ' text-gray-500' : ''
+                    className={`ff-hover-finger relative ${isCursorBuster ? ' text-gray-500' : ''
                         }`}
-                    onClick={handleOn}
+                    onClick={handleOff}
                 >
-                    On
+                    Standard
                 </span>
                 <span
-                    onClick={handleOff}
-                    className={`ff-hover-finger relative ml-16${isSoundOn ? ' text-gray-500' : ''
+                    onClick={handleOn}
+                    className={`ff-hover-finger relative ml-16${!isCursorBuster ? ' text-gray-500' : ''
                         }`}
                 >
-                    Off
+                    Buster
                 </span>
             </p>
         </div>
     );
 };
 
-export default SoundEffectsConfig;
+export default CursorConfig;
