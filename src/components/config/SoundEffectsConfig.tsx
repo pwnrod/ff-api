@@ -27,7 +27,7 @@ const SoundEffectsConfig = () => {
             </div>
             <p>
                 <span
-                    className={`ff-hover-finger relative ${!isSoundOn ? ' text-gray-500' : ''
+                    className={`ff-hover-finger relative mr-16${!isSoundOn ? ' text-gray-500' : ''
                         }`}
                     onClick={handleOn}
                 >
@@ -35,7 +35,7 @@ const SoundEffectsConfig = () => {
                 </span>
                 <span
                     onClick={handleOff}
-                    className={`ff-hover-finger relative ml-16${isSoundOn ? ' text-gray-500' : ''
+                    className={`ff-hover-finger relative${isSoundOn ? ' text-gray-500' : ''
                         }`}
                 >
                     Off

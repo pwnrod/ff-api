@@ -6,11 +6,17 @@
 
 .ff-dialog {
     margin-top: 0.25rem;
+    background: linear-gradient(
+        90deg,
+        var(--top-left-corner),
+        var(--top-right-corner)
+    );
+    position: relative;
     @apply rounded-md;
-    @apply bg-ffBlue;
-    @apply bg-gradient-to-b;
-    @apply from-ffBlue;
-    @apply to-ffDarkBlue;
+    /* @apply bg-ffBlue; */
+    /* @apply bg-gradient-to-b; */
+    /* @apply from-ffBlue; */
+    /* @apply to-ffDarkBlue; */
     @apply border-2;
     @apply border-solid;
     @apply border-ffGray;
@@ -22,13 +28,30 @@
         0 -2px #9c9a9c,
         -2px 0 #7b757b,
         0 2px #424542;
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#04009d', endColorstr='#06004d',GradientType=0 );
+    /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#04009d', endColorstr='#06004d',GradientType=0 ); */
+}
+
+.ff-dialog::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    mask-image: linear-gradient(to bottom, transparent, black);
+    background: linear-gradient(
+        90deg,
+        var(--bottom-left-corner),
+        var(--bottom-right-corner)
+    );
+    background-clip: content-box;
 }
 
 .ff-dialog * {
     text-shadow:
         2px 2px #212421,
         1px 1px #212021;
+    position: relative;
 }
 
 .ff-dialog .ff-hover-finger::before {
@@ -42,6 +65,7 @@
     background-size: cover;
     background-repeat: none;
     transform: translateX(-5.25rem);
+    pointer-events: none;
 }
 
 .ff-dialog .ff-hover-finger:hover {

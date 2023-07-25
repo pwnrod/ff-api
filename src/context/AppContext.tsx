@@ -1,4 +1,7 @@
-import { createContext, useState } from 'react';
+import { createContext, useReducer, useState } from 'react';
+import windowColorReducer, {
+    WindowColorAction,
+} from '../reducers/windowColorReducer';
 import { getRandomGil } from '../utils/utils';
 
 type AppContextProps = {
@@ -14,6 +17,7 @@ type AppContextProps = {
     setIsSoundOn: React.Dispatch<React.SetStateAction<boolean>>;
     isCursorBuster: boolean;
     setIsCursorBuster: React.Dispatch<React.SetStateAction<boolean>>;
+    windowColorDispatch: React.Dispatch<WindowColorAction>;
 };
 
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -29,6 +33,16 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     const [gil, setGil] = useState(() => getRandomGil(20000, 150000));
     const [isSoundOn, setIsSoundOn] = useState<boolean>(true);
     const [isCursorBuster, setIsCursorBuster] = useState<boolean>(false);
+    const initialWindowColorState = {
+        topLeftCornerColor: 'var(--top-left-corner)',
+        topRightCornerColor: 'var(--top-left-corner)',
+        bottomLeftCornerColor: 'var(--top-left-corner)',
+        bottomRightCornerColor: 'var(--top-left-corner)',
+    };
+    const [_, windowColorDispatch] = useReducer(
+        windowColorReducer,
+        initialWindowColorState,
+    );
 
     return (
         <AppContext.Provider
@@ -45,6 +59,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
                 setIsSoundOn,
                 isCursorBuster,
                 setIsCursorBuster,
+                windowColorDispatch,
             }}
         >
             {children}

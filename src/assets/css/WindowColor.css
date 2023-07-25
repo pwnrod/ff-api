@@ -1,9 +1,0 @@
-.window-gradient {
-    /* background: linear-gradient(to right, red, transparent), */
-    /*     linear-gradient(to bottom, blue, transparent), */
-    /*     linear-gradient(to right bottom, green, transparent), */
-    /*     linear-gradient(to left bottom, purple, transparent); */
-    background: linear-gradient(45deg, red, blue),
-        linear-gradient(135deg, green, purple);
-    /* background-blend-mode: screen; */
-}

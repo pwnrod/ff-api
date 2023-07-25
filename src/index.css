@@ -17,3 +17,10 @@
         font-family: 'FFMenu', system-ui, sans-serif;
     }
 }
+
+:root {
+    --top-left-corner: rgb(0, 0, 176);
+    --top-right-corner: rgb(0, 0, 128);
+    --bottom-left-corner: rgb(0, 0, 108);
+    --bottom-right-corner: rgb(0, 0, 32);
+}
