@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { useCallback, useEffect, useRef } from 'react';
 import useStatusText from '../../hooks/useStatusText';
-import { useAppContext } from '../../hooks/useAppContext';
 import { getRandomGil } from '../../utils/utils';
 
 const MAX_GIL = 99999999;
@@ -8,7 +8,7 @@ const MAX_GIL = 99999999;
 const Gil = () => {
     const victoryFanfareRef = useRef(new Audio('/ff7-fanfare.mp3'));
     const statusTextHandlers = useStatusText('Max it out!');
-    const { gil, setGil } = useAppContext();
+    const [gil, setGil] = useState(() => getRandomGil(20000, 150000));
     const prevGilRef = useRef(gil);
     const playFanfare = useCallback(async () => {
         const fanfare = victoryFanfareRef.current;

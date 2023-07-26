@@ -20,7 +20,7 @@ const ConfigPage = () => {
             className={`max-w-5xl mx-auto relative`}
         >
             <div className='ff-dialog min-h-[20rem] p-12 flex flex-col text-2xl'>
-                <div className='max-w-4xl mx-auto space-y-4'>
+                <div className='max-w-4xl mx-auto space-y-1'>
                     <WindowColorConfig />
                     <SoundEffectsConfig />
                     <CursorConfig />

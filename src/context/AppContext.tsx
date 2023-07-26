@@ -11,8 +11,6 @@ type AppContextProps = {
     setStatusText: React.Dispatch<React.SetStateAction<string>>;
     isMenuOpen: boolean;
     setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    gil: number;
-    setGil: React.Dispatch<React.SetStateAction<number>>;
     isSoundOn: boolean;
     setIsSoundOn: React.Dispatch<React.SetStateAction<boolean>>;
     isCursorBuster: boolean;
@@ -30,7 +28,6 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     const [pageName, setPageName] = useState<string>('');
     const [statusText, setStatusText] = useState<string>('');
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
-    const [gil, setGil] = useState(() => getRandomGil(20000, 150000));
     const [isSoundOn, setIsSoundOn] = useState<boolean>(true);
     const [isCursorBuster, setIsCursorBuster] = useState<boolean>(false);
     const initialWindowColorState = {
@@ -41,7 +38,7 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     };
     const [_, windowColorDispatch] = useReducer(
         windowColorReducer,
-        initialWindowColorState,
+        initialWindowColorState
     );
 
     return (
@@ -53,8 +50,6 @@ export const AppProvider = ({ children }: AppProviderProps) => {
                 setStatusText,
                 isMenuOpen,
                 setIsMenuOpen,
-                gil,
-                setGil,
                 isSoundOn,
                 setIsSoundOn,
                 isCursorBuster,
