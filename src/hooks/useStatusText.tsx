@@ -1,7 +1,7 @@
-import { useAppContext } from './useAppContext';
+import { useUpdateStatus } from './useStatus';
 
 const useStatusText = (text: string) => {
-    const { setStatusText } = useAppContext();
+    const setStatusText = useUpdateStatus();
 
     const onMouseEnter = () => setStatusText(text);
     const onMouseLeave = () => setStatusText('');

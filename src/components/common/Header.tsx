@@ -11,7 +11,7 @@ const Header = () => {
     const menuButtonRef = useRef<HTMLButtonElement | null>(null);
     const menuButtonVerb = isMenuOpen ? 'Hide' : 'Show';
     const menuButtonStatusTextHandlers = useStatusText(
-        `${menuButtonVerb} the Main Menu`,
+        `${menuButtonVerb} the Main Menu`
     );
     const animatedStyles = useAnimatedPadding();
 

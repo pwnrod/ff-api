@@ -4,8 +4,6 @@ import windowColorReducer, {
 } from '../reducers/windowColorReducer';
 
 type AppContextProps = {
-    statusText: string;
-    setStatusText: React.Dispatch<React.SetStateAction<string>>;
     isMenuOpen: boolean;
     setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
     isSoundOn: boolean;
@@ -22,7 +20,6 @@ type AppProviderProps = {
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-    const [statusText, setStatusText] = useState<string>('');
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
     const [isSoundOn, setIsSoundOn] = useState<boolean>(true);
     const [isCursorBuster, setIsCursorBuster] = useState<boolean>(false);
@@ -40,8 +37,6 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     return (
         <AppContext.Provider
             value={{
-                statusText,
-                setStatusText,
                 isMenuOpen,
                 setIsMenuOpen,
                 isSoundOn,

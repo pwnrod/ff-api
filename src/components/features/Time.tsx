@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import useStatusText from '../../hooks/useStatusText';
-import { useAppContext } from '../../hooks/useAppContext';
+import { useUpdateStatus } from '../../hooks/useStatus';
 
 const Time = () => {
-    const { setStatusText } = useAppContext();
+    const setStatusText = useUpdateStatus();
     const [hour, setHour] = useState('00');
     const [minute, setMinute] = useState('00');
     const [second, setSecond] = useState('00');

@@ -1,10 +1,12 @@
 import { useAppContext } from '../../hooks/useAppContext';
+import { useStatus } from '../../hooks/useStatus';
 import { animated, useSpring } from '@react-spring/web';
 import useAnimatedPadding from '../../hooks/useAnimatedPadding';
 import PageName from './PageName';
 
 const StatusBar = () => {
-    const { statusText, isMenuOpen } = useAppContext();
+    const { isMenuOpen } = useAppContext();
+    const statusText = useStatus();
     const isEmptyText = statusText === '';
     const animatedStyles = useAnimatedPadding();
     const springs = useSpring({
