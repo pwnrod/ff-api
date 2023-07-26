@@ -1,5 +1,3 @@
-import { useAppContext } from '../hooks/useAppContext';
-import { useEffect } from 'react';
 import { animated } from '@react-spring/web';
 import useAnimatedPadding from '../hooks/useAnimatedPadding';
 import SoundEffectsConfig from '../components/config/SoundEffectsConfig';
@@ -7,12 +5,7 @@ import WindowColorConfig from '../components/config/WindowColorConfig';
 import CursorConfig from '../components/config/CursorConfig';
 
 const ConfigPage = () => {
-    const { setPageName } = useAppContext();
     const animatedStyles = useAnimatedPadding();
-
-    useEffect(() => {
-        setPageName('Config');
-    }, [setPageName]);
 
     return (
         <animated.main

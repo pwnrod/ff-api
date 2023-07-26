@@ -2,11 +2,8 @@ import { createContext, useReducer, useState } from 'react';
 import windowColorReducer, {
     WindowColorAction,
 } from '../reducers/windowColorReducer';
-import { getRandomGil } from '../utils/utils';
 
 type AppContextProps = {
-    pageName: string;
-    setPageName: React.Dispatch<React.SetStateAction<string>>;
     statusText: string;
     setStatusText: React.Dispatch<React.SetStateAction<string>>;
     isMenuOpen: boolean;
@@ -25,7 +22,6 @@ type AppProviderProps = {
 };
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-    const [pageName, setPageName] = useState<string>('');
     const [statusText, setStatusText] = useState<string>('');
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true);
     const [isSoundOn, setIsSoundOn] = useState<boolean>(true);
@@ -44,8 +40,6 @@ export const AppProvider = ({ children }: AppProviderProps) => {
     return (
         <AppContext.Provider
             value={{
-                pageName,
-                setPageName,
                 statusText,
                 setStatusText,
                 isMenuOpen,

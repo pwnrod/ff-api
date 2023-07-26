@@ -1,6 +1,6 @@
 import { SpringValue } from '@react-spring/web';
 import { animated } from '@react-spring/web';
-import { useAppContext } from '../../hooks/useAppContext';
+import { useLocation } from 'react-router-dom';
 
 type Props = {
     className?: string;
@@ -11,7 +11,27 @@ type Props = {
 };
 
 const PageName = ({ className = '', style }: Props) => {
-    const { pageName } = useAppContext();
+    const location = useLocation();
+    let pageName;
+    switch (location.pathname) {
+        case '/':
+            pageName = 'Home';
+            break;
+        case '/games':
+            pageName = 'Games';
+            break;
+        case '/characters':
+            pageName = 'Characters';
+            break;
+        case '/monsters':
+            pageName = 'Monsters';
+            break;
+        case '/config':
+            pageName = 'Config';
+            break;
+        default:
+            pageName = 'Not Found';
+    }
 
     return (
         <animated.div style={style} className={`ff-dialog ${className}`}>

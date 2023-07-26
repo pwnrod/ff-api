@@ -12,10 +12,9 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
     const homeStatusTextHandlers = useStatusText('Go to the Homepage');
     const gamesStatusTextHandlers = useStatusText('Go to the Games Page');
     const charactersStatusTextHandlers = useStatusText(
-        'Go to the Characters Page',
+        'Go to the Characters Page'
     );
     const monstersStatusTextHandlers = useStatusText('Go to the Monsters Page');
-    const aboutStatusTextHandlers = useStatusText('Go to the About Page');
     const configStatusTextHandlers = useStatusText('Go to the Config Page');
     const transitions = useFadeTransition(isMenuOpen);
 
@@ -68,15 +67,6 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
                         </li>
                         <li>
                             <Link
-                                {...aboutStatusTextHandlers}
-                                className='ff-hover-finger block relative'
-                                to={`about`}
-                            >
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
                                 {...configStatusTextHandlers}
                                 className='ff-hover-finger block relative'
                                 to={`config`}
@@ -86,7 +76,7 @@ const NavBar = ({ navRef, isMenuOpen }: Props) => {
                         </li>
                     </ul>
                 </animated.nav>
-            ),
+            )
     );
 };
 
