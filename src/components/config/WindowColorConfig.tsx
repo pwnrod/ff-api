@@ -5,8 +5,8 @@ const WindowColorConfig = () => {
 
     return (
         <div className='flex items-center'>
-            <div className='min-w-[15rem]'>
-                <button className='ff-hover-finger relative text-ffLightBlue'>
+            <div className='min-w-[15rem] flex'>
+                <button className='ff-hover-finger mt-auto relative text-ffLightBlue'>
                     Window color
                 </button>
             </div>
