@@ -13,7 +13,7 @@ export type WindowColorAction =
 
 const windowColorReducer = (
     state: WindowColorState,
-    action: WindowColorAction,
+    action: WindowColorAction
 ) => {
     switch (action.type) {
         case 'SET_TOP_LEFT_CORNER_COLOR':
