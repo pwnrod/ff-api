@@ -1,7 +1,10 @@
-import { useAppContext } from '../../hooks/useAppContext';
+// import { useAppContext } from '../../hooks/useAppContext';
 
 const WindowColorConfig = () => {
-    const { windowColorDispatch } = useAppContext();
+    // TODO: Figure out how to get these buttons to set the background
+    // gradient color on all of the windows in the site.
+
+    // const { windowColorDispatch } = useAppContext();
 
     return (
         <div className='flex items-center'>
