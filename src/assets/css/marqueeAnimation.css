@@ -1,0 +1,18 @@
+.marquee-content {
+    display: inline-block;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.marquee-container.scrolling .marquee-content {
+    animation-name: marquee;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

@@ -3,6 +3,8 @@ import { useStatus } from '../../hooks/useStatus';
 import { animated, useSpring } from '@react-spring/web';
 import useAnimatedPadding from '../../hooks/useAnimatedPadding';
 import PageName from './PageName';
+import { useEffect, useRef, useState } from 'react';
+import '../../assets/css/marqueeAnimation.css';
 
 const StatusBar = () => {
     const { isMenuOpen } = useAppContext();
@@ -13,6 +15,18 @@ const StatusBar = () => {
         opacity: isMenuOpen ? 0 : 1,
         right: isMenuOpen ? '6rem' : '0rem',
     });
+    const marqueeRef = useRef<HTMLParagraphElement | null>(null);
+    const [isScrolling, setIsScrolling] = useState(false);
+
+    useEffect(() => {
+        if (marqueeRef.current) {
+            setTimeout(() => {
+                const { scrollWidth, clientWidth } = marqueeRef.current!;
+                setIsScrolling(scrollWidth > clientWidth);
+                console.log(scrollWidth > clientWidth);
+            }, 0);
+        }
+    }, [statusText]);
 
     return (
         <>
@@ -20,8 +34,17 @@ const StatusBar = () => {
                 style={animatedStyles}
                 className={`max-w-5xl mx-auto relative`}
             >
-                <div className='ff-dialog px-6 py-1'>
-                    <p className={`text-2xl ${isEmptyText ? 'opacity-0' : ''}`}>
+                <div
+                    className={`ff-dialog marquee-container w-full whitespace-nowrap overflow-hidden px-6 py-1 ${
+                        isScrolling ? 'scrolling' : ''
+                    }`}
+                >
+                    <p
+                        ref={marqueeRef}
+                        className={`marquee-content text-2xl ${
+                            isEmptyText ? 'opacity-0' : ''
+                        }`}
+                    >
                         {isEmptyText ? 'Waiting to be helpful...' : statusText}
                     </p>
                 </div>
