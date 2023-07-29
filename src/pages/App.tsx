@@ -4,6 +4,7 @@ import StatusBar from '../components/common/StatusBar';
 import { useAppContext } from '../hooks/useAppContext';
 import { AppProvider } from '../context/AppProvider';
 import { Outlet } from 'react-router-dom';
+import { StatusProvider } from '../context/StatusProvider';
 
 const App = () => {
     return (
