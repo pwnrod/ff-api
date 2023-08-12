@@ -1,50 +1,40 @@
-import { useState } from 'react';
-import CharacterCard from '../components/cards/CharacterCard';
-import Pagination from '../components/Pagination';
 import useFetchCharacters from '../hooks/useFetchCharacters';
 import { animated } from '@react-spring/web';
 import useAnimatedPadding from '../hooks/useAnimatedPadding';
 
-const ITEMS_PER_PAGE = 6;
 
 const CharactersPage = () => {
     const { data, loading, error } = useFetchCharacters();
-    const [currentPage, setCurrentPage] = useState(1);
     const animatedStyles = useAnimatedPadding();
 
     if (loading) return 'Loading...';
     if (error) return 'Error: ' + error.message;
 
     let renderedCharacters: React.ReactNode[] | null = null;
-    const totalCount = data?.length ? data.length : 0;
 
     if (data) {
-        const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-        const selectedData = data?.slice(
-            startIndex,
-            startIndex + ITEMS_PER_PAGE
-        );
-
-        renderedCharacters = selectedData?.map((character) => {
-            return <CharacterCard key={character.id} character={character} />;
+        renderedCharacters = data?.map((character) => {
+            return (
+                <li className="">
+                    <a href='#' className='ff-hover-finger block relative text-xl'>{character.name}</a>
+                </li>
+            );
         });
     }
 
     return (
         <animated.main
             style={animatedStyles}
-            className='max-w-5xl mx-auto relative'
+            className='max-w-5xl grid grid-cols-5 mx-auto relative'
         >
-            <section className='ff-dialog p-12'>
-                <Pagination
-                    onPageChange={setCurrentPage}
-                    currentPage={currentPage}
-                    totalCount={totalCount}
-                    pageSize={ITEMS_PER_PAGE}
-                />
-                <div className='grid grid-cols-2 grid-rows-3 gap-10'>
-                    {renderedCharacters}
+            <section className='ff-dialog p-12 pr-0 col-span-3'>
+                <div className='max-h-[500px] overflow-scroll'>
+                    <ul className='grid grid-cols-2 grid-rows-3 gap-2'>
+                        {renderedCharacters}
+                    </ul>
                 </div>
+            </section>
+            <section className='ff-dialog p-12 col-span-2'>
             </section>
         </animated.main>
     );
