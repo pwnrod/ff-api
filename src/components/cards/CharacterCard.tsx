@@ -1,4 +1,4 @@
-import { CharacterData } from '../interfaces/CharacterInterface';
+import { CharacterData } from '../../interfaces/CharacterInterface';
 
 type Props = {
     character: CharacterData;
@@ -6,16 +6,19 @@ type Props = {
 
 const CharacterCard = ({ character }: Props) => {
     return (
-        <div className='ff-dialog flex' data-message={character.description}>
-            <div className='bg-white w-20 h-32 relative mr-6'>
+        <div className='flex flex-col'>
+            <div className='bg-white w-20 h-32 relative mx-auto'>
                 <img
                     src={character.pictures[0]?.url}
                     className='object-cover w-full h-full'
                     alt={`An image of ${character.name}`}
                 />
             </div>
-            <div className='flex flex-col text-xl justify-center'>
-                <h3 className='text-2xl'>{character.name}</h3>
+            <div className='mt-4 flex flex-col text-xl justify-center'>
+                <p>
+                    <span className='text-ffLightBlue mr-2'>NAME</span>
+                    {character.name}
+                </p>
                 <p>
                     <span className='text-ffLightBlue mr-2'>AGE</span>
                     {character.age}
@@ -28,6 +31,7 @@ const CharacterCard = ({ character }: Props) => {
                     <span className='text-ffLightBlue mr-2'>ORIGIN</span>
                     {character.origin}
                 </p>
+                <p>{character.description}</p>
             </div>
         </div>
     );

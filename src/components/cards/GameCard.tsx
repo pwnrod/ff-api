@@ -1,4 +1,4 @@
-import { GameData } from '../interfaces/GameInterface';
+import { GameData } from '../../interfaces/GameInterface';
 
 type Props = {
     game: GameData;

@@ -1,4 +1,4 @@
-import { MonsterData } from '../interfaces/MonsterInterface';
+import { MonsterData } from '../../interfaces/MonsterInterface';
 
 type Props = {
     monster: MonsterData;
