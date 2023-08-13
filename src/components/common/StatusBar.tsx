@@ -15,6 +15,7 @@ const StatusBar = () => {
         opacity: isMenuOpen ? 0 : 1,
         right: isMenuOpen ? '6rem' : '0rem',
     });
+    // TODO: finish implementing some kind of scrolling marquee text in the status bar
     const marqueeRef = useRef<HTMLParagraphElement | null>(null);
     const [isScrolling, setIsScrolling] = useState(false);
 
@@ -23,7 +24,6 @@ const StatusBar = () => {
             setTimeout(() => {
                 const { scrollWidth, clientWidth } = marqueeRef.current!;
                 setIsScrolling(scrollWidth > clientWidth);
-                console.log(scrollWidth > clientWidth);
             }, 0);
         }
     }, [statusText]);
@@ -35,15 +35,13 @@ const StatusBar = () => {
                 className={`max-w-5xl mx-auto relative`}
             >
                 <div
-                    className={`ff-dialog marquee-container w-full whitespace-nowrap overflow-hidden px-6 py-1 ${
-                        isScrolling ? 'scrolling' : ''
-                    }`}
+                    className={`ff-dialog marquee-container w-full whitespace-nowrap overflow-hidden px-6 py-1 ${isScrolling ? 'scrolling' : ''
+                        }`}
                 >
                     <p
                         ref={marqueeRef}
-                        className={`marquee-content text-2xl ${
-                            isEmptyText ? 'opacity-0' : ''
-                        }`}
+                        className={`marquee-content text-2xl ${isEmptyText ? 'opacity-0' : ''
+                            }`}
                     >
                         {isEmptyText ? 'Waiting to be helpful...' : statusText}
                     </p>
