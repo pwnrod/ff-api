@@ -31,7 +31,6 @@ const CharacterCard = ({ character }: Props) => {
                     <span className='text-ffLightBlue mr-2'>ORIGIN</span>
                     {character.origin}
                 </p>
-                <p>{character.description}</p>
             </div>
         </div>
     );
