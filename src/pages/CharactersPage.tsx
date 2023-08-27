@@ -63,7 +63,7 @@ const CharactersPage = () => {
                     renderedCurrentCharacter
                 ) : (
                     <div>
-                        <h2 className='text-2xl'>
+                        <h2 className='text-xl text-center'>
                             Scroll through and click a character to learn more
                             about them
                         </h2>
